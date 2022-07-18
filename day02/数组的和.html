@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="box">
+        <input type="text" value="5,2,0" />输入数字求和，数字之间用半角","号分隔<br>
+        <button>求和</button>
+        <strong id="sum"></strong>
+    </div>
+</body>
+<script>
+    window.onload = function () {
+        var btn = document.getElementsByTagName("button")[0]
+        var ipt = document.getElementsByTagName("input")[0]
+        var osum = document.getElementById('sum')
+        ipt.onkeyup = function () {
+            this.value = this.value.replace(/[^(\d)|(,)]/, "");
+        }
+        btn.onclick = function () {
+            var summ = 0
+            var ipt = document.getElementsByTagName('input')[0].value.split(",")
+            for (var i in ipt) {
+                summ += parseInt(ipt[i])
+            }
+            osum.innerHTML = summ
+        }
+    }
+</script>
+
+</html>
